@@ -2,6 +2,7 @@ package com.kendhammer.john.urbandictionarykotlin.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.kendhammer.john.urbandictionarykotlin.di.DaggerApiComponent
 import com.kendhammer.john.urbandictionarykotlin.model.Definition
 import com.kendhammer.john.urbandictionarykotlin.model.UrbanResponse
 import com.kendhammer.john.urbandictionarykotlin.model.UrbanService
@@ -9,13 +10,20 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 class DescriptionListViewModel : ViewModel() {
     val urbanResponse = MutableLiveData<UrbanResponse>()
     val definitions = MutableLiveData<List<Definition>>()
     val wordLoadError = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
-    private val urbanService = UrbanService()
+
+    @Inject
+    lateinit var urbanService: UrbanService
+
+    init {
+        DaggerApiComponent.create().inject(this)
+    }
     private val disposable = CompositeDisposable()
 
     fun refresh(word: String) {

@@ -60,6 +60,7 @@ class SearchFragment : Fragment() {
             val query = etQuery.text
             if (query != null) {
                 viewModel.refresh(query.toString())
+                etQuery.text = null
                 hideSoftKeyboard(view)
             }
         }

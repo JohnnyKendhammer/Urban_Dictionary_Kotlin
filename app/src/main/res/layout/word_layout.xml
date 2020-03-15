@@ -27,7 +27,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
-                android:hint="@string/word"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="30sp"
                 android:textStyle="bold|italic"

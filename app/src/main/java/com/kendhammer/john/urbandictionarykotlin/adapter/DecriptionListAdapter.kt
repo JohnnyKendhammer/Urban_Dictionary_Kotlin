@@ -1,7 +1,6 @@
 package com.kendhammer.john.urbandictionarykotlin.view
 
 import android.annotation.SuppressLint
-import android.media.MediaPlayer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kendhammer.john.urbandictionarykotlin.R
 import com.kendhammer.john.urbandictionarykotlin.model.Definition
 import kotlinx.android.synthetic.main.word_layout.view.*
-import java.io.IOException
 import java.text.SimpleDateFormat
 
 
@@ -42,7 +40,7 @@ class DecriptionListAdapter(var definitions: ArrayList<Definition>) :
             holder.itemView.btn_dislike.text = definition.thumbsDown.toString()
         }
 
-        holder.itemView.btn_play.setOnClickListener {
+        /*holder.itemView.btn_play.setOnClickListener {
             val uri = definition.soundUrls!![0]
             val mediaPlayer = MediaPlayer()
             try {
@@ -60,7 +58,7 @@ class DecriptionListAdapter(var definitions: ArrayList<Definition>) :
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-        }
+        }*/
     }
 
     class WordListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
