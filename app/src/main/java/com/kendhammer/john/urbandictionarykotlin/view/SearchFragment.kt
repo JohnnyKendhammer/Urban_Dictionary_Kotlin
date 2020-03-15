@@ -24,7 +24,7 @@ import com.kendhammer.john.urbandictionarykotlin.viewmodel.DescriptionListViewMo
  */
 class SearchFragment : Fragment() {
     private lateinit var viewModel: DescriptionListViewModel
-    private val wordsAdapter = WordListAdapter(arrayListOf())
+    private val wordsAdapter = DecriptionListAdapter(arrayListOf())
     private lateinit var rvSearchResults: RecyclerView
     private lateinit var etQuery: EditText
     private lateinit var tvListError: TextView
@@ -66,8 +66,8 @@ class SearchFragment : Fragment() {
     }
 
     private fun setView(view: View) {
-        rvSearchResults = view.findViewById(R.id.rvSearchResults)
-        etQuery = view.findViewById(R.id.etQuery)
+        rvSearchResults = view.findViewById(R.id.rv_searchResults)
+        etQuery = view.findViewById(R.id.et_query)
         pbLoadingView = view.findViewById(R.id.pb_loading_view)
         tvListError = view.findViewById(R.id.tv_list_error)
         tvListError.visibility = View.GONE

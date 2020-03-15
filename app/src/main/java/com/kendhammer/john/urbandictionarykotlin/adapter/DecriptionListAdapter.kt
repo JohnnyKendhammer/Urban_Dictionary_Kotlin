@@ -13,8 +13,8 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 
 
-class WordListAdapter(var definitions: ArrayList<Definition>) :
-    RecyclerView.Adapter<WordListAdapter.WordListViewHolder>() {
+class DecriptionListAdapter(var definitions: ArrayList<Definition>) :
+    RecyclerView.Adapter<DecriptionListAdapter.WordListViewHolder>() {
 
     fun updateWordList(newDefinitionList: List<Definition>) {
         definitions.clear()

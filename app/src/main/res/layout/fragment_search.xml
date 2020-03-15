@@ -7,7 +7,7 @@
     tools:context=".view.SearchFragment">
 
     <TextView
-        android:id="@+id/tvUrbanDictionary"
+        android:id="@+id/tv_urbanDictionary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -20,13 +20,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etQuery"
+        android:id="@+id/et_query"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:hint="@string/enter_query"
         app:layout_constraintEnd_toStartOf="@+id/btn_search"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUrbanDictionary" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_urbanDictionary" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_search"
@@ -34,17 +35,17 @@
         android:layout_height="wrap_content"
         android:text="@string/search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etQuery"
-        app:layout_constraintTop_toBottomOf="@+id/tvUrbanDictionary" />
+        app:layout_constraintStart_toEndOf="@+id/et_query"
+        app:layout_constraintTop_toBottomOf="@+id/tv_urbanDictionary" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSearchResults"
+        android:id="@+id/rv_searchResults"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etQuery"
+        app:layout_constraintTop_toBottomOf="@+id/et_query"
         android:scrollbars="vertical"/>
 
     <TextView
