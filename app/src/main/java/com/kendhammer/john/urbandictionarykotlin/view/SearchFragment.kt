@@ -24,7 +24,7 @@ import com.kendhammer.john.urbandictionarykotlin.viewmodel.DescriptionListViewMo
  */
 class SearchFragment : Fragment() {
     private lateinit var viewModel: DescriptionListViewModel
-    private val wordsAdapter = DecriptionListAdapter(arrayListOf())
+    private val wordsAdapter = DescriptionListAdapter(arrayListOf())
     private lateinit var rvSearchResults: RecyclerView
     private lateinit var etQuery: EditText
     private lateinit var tvListError: TextView

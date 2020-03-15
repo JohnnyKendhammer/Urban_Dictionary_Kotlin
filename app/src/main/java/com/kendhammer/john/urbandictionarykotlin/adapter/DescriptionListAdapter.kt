@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.word_layout.view.*
 import java.text.SimpleDateFormat
 
 
-class DecriptionListAdapter(var definitions: ArrayList<Definition>) :
-    RecyclerView.Adapter<DecriptionListAdapter.WordListViewHolder>() {
+class DescriptionListAdapter(var definitions: ArrayList<Definition>) :
+    RecyclerView.Adapter<DescriptionListAdapter.WordListViewHolder>() {
 
     fun updateWordList(newDefinitionList: List<Definition>) {
         definitions.clear()
@@ -33,32 +33,32 @@ class DecriptionListAdapter(var definitions: ArrayList<Definition>) :
         holder.itemView.btn_liked.setOnClickListener {
             definition.thumbsUp = definition.thumbsUp!!.inc()
             holder.itemView.btn_liked.text = definition.thumbsUp.toString()
+
         }
 
         holder.itemView.btn_dislike.setOnClickListener {
             definition.thumbsDown = definition.thumbsDown!!.inc()
             holder.itemView.btn_dislike.text = definition.thumbsDown.toString()
+
         }
 
-        /*holder.itemView.btn_play.setOnClickListener {
-            val uri = definition.soundUrls!![0]
-            val mediaPlayer = MediaPlayer()
-            try {
-                mediaPlayer.setDataSource(uri)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-            try {
-                mediaPlayer.setOnPreparedListener {
-                    mediaPlayer.prepareAsync()
-                    mediaPlayer.prepare()
-                    mediaPlayer.start()
-                }
+        holder.itemView.sort_likes.setOnClickListener {
+            sortLikes(definitions)
+        }
 
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }*/
+        holder.itemView.sort_dislikes.setOnClickListener {
+            sortDislikes(definitions)
+        }
+    }
+
+    private fun sortLikes(definitions: List<Definition>){
+        val sortedList = definitions.sortedByDescending { definition -> definition.thumbsUp }
+        updateWordList(sortedList)
+    }
+
+    private fun sortDislikes(definitions: List<Definition>){
+        val sortedList = definitions.sortedByDescending { definition -> definition.thumbsDown }
+        updateWordList(sortedList)
     }
 
     class WordListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
