@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Urban Dictionary Kotlin</string>
+    <string name="urban_dictionary">Urban Dictionary</string>
+    <string name="enter_query">Enter Query</string>
+    <string name="search">Search</string>
+    <string name="dislikes">Dislikes</string>
+    <string name="likes">Likes</string>
+    <string name="written_on">written on</string>
+    <string name="author">author</string>
+    <string name="example">This is where the example fo the word will go</string>
+    <string name="description">This is where the description fo the word will go</string>
+    <string name="word">Word</string>
+    <string name="error_occurred">Error occurred while loading data</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
