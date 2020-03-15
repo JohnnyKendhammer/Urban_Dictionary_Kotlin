@@ -10,7 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
-class WordListViewModel : ViewModel() {
+class DescriptionListViewModel : ViewModel() {
     val urbanResponse = MutableLiveData<UrbanResponse>()
     val definitions = MutableLiveData<List<Definition>>()
     val wordLoadError = MutableLiveData<Boolean>()

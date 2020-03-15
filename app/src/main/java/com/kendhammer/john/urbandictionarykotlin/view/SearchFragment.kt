@@ -17,13 +17,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kendhammer.john.urbandictionarykotlin.R
-import com.kendhammer.john.urbandictionarykotlin.viewmodel.WordListViewModel
+import com.kendhammer.john.urbandictionarykotlin.viewmodel.DescriptionListViewModel
 
 /**
  * A simple [Fragment] subclass.
  */
 class SearchFragment : Fragment() {
-    private lateinit var viewModel: WordListViewModel
+    private lateinit var viewModel: DescriptionListViewModel
     private val wordsAdapter = WordListAdapter(arrayListOf())
     private lateinit var rvSearchResults: RecyclerView
     private lateinit var etQuery: EditText
@@ -38,7 +38,7 @@ class SearchFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         //Create ViewModel
-        viewModel = ViewModelProviders.of(this).get(WordListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(DescriptionListViewModel::class.java)
         //Set the views of the Fragment
         setView(view)
 

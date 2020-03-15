@@ -2,7 +2,6 @@ package com.kendhammer.john.urbandictionarykotlin.view
 
 import android.annotation.SuppressLint
 import android.media.MediaPlayer
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import com.kendhammer.john.urbandictionarykotlin.R
 import com.kendhammer.john.urbandictionarykotlin.model.Definition
 import kotlinx.android.synthetic.main.word_layout.view.*
 import java.io.IOException
-import java.net.URI
 import java.text.SimpleDateFormat
 
 
@@ -35,19 +33,13 @@ class WordListAdapter(var definitions: ArrayList<Definition>) :
         holder.bind(definition)
 
         holder.itemView.btn_liked.setOnClickListener {
-            var thumbsUpCount = definition.thumbsUp
-            if (thumbsUpCount != null) {
-                definition.thumbsUp = thumbsUpCount++
-                holder.itemView.btn_liked.text = thumbsUpCount.toString()
-            }
+            definition.thumbsUp = definition.thumbsUp!!.inc()
+            holder.itemView.btn_liked.text = definition.thumbsUp.toString()
         }
 
         holder.itemView.btn_dislike.setOnClickListener {
-            var thumbsDownCount = definition.thumbsDown
-            if (thumbsDownCount != null) {
-                definition.thumbsDown = thumbsDownCount++
-                holder.itemView.btn_dislike.text = "$thumbsDownCount"
-            }
+            definition.thumbsDown = definition.thumbsDown!!.inc()
+            holder.itemView.btn_dislike.text = definition.thumbsDown.toString()
         }
 
         holder.itemView.btn_play.setOnClickListener {
@@ -59,11 +51,11 @@ class WordListAdapter(var definitions: ArrayList<Definition>) :
                 e.printStackTrace()
             }
             try {
-                mediaPlayer.setOnPreparedListener(MediaPlayer.OnPreparedListener {
+                mediaPlayer.setOnPreparedListener {
                     mediaPlayer.prepareAsync()
                     mediaPlayer.prepare()
                     mediaPlayer.start()
-                })
+                }
 
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -97,7 +89,6 @@ class WordListAdapter(var definitions: ArrayList<Definition>) :
             val parser = SimpleDateFormat("yyyy-MM-dd")
             val formatter = SimpleDateFormat("MM/dd/yyyy")
             dateView.text = formatter.format(parser.parse(writtenOn))
-
         }
     }
 }
