@@ -107,17 +107,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_author" />
 
             <Button
-                android:id="@+id/sort_likes"
+                android:id="@+id/btn_sort_likes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:drawableStart="@drawable/ic_sort_black_24dp"
                 android:text="@string/likes"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/sort_dislikes" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_sort_dislikes" />
 
             <Button
-                android:id="@+id/sort_dislikes"
+                android:id="@+id/btn_sort_dislikes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

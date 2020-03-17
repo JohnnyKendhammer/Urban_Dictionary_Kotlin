@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kendhammer.john.urbandictionarykotlin.R
+import com.kendhammer.john.urbandictionarykotlin.adapter.DescriptionListAdapter
 import com.kendhammer.john.urbandictionarykotlin.viewmodel.DescriptionListViewModel
 
 /**
@@ -24,7 +25,7 @@ import com.kendhammer.john.urbandictionarykotlin.viewmodel.DescriptionListViewMo
  */
 class SearchFragment : Fragment() {
     private lateinit var viewModel: DescriptionListViewModel
-    private val wordsAdapter = DescriptionListAdapter(arrayListOf())
+    private val descriptionAdapter = DescriptionListAdapter(arrayListOf())
     private lateinit var rvSearchResults: RecyclerView
     private lateinit var etQuery: EditText
     private lateinit var tvListError: TextView
@@ -45,7 +46,7 @@ class SearchFragment : Fragment() {
         //Set adapter for RecyclerView
         rvSearchResults.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = wordsAdapter
+            adapter = descriptionAdapter
         }
 
         //Observe Changes in Data
@@ -80,7 +81,7 @@ class SearchFragment : Fragment() {
         viewModel.definitions.observe(this, Observer { definitions ->
             definitions?.let {
                 rvSearchResults.visibility = View.VISIBLE
-                wordsAdapter.updateWordList(it)
+                descriptionAdapter.updateWordList(it)
             }
         })
 

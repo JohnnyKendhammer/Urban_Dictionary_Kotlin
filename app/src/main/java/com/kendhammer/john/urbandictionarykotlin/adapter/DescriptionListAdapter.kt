@@ -1,4 +1,4 @@
-package com.kendhammer.john.urbandictionarykotlin.view
+package com.kendhammer.john.urbandictionarykotlin.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -33,30 +33,28 @@ class DescriptionListAdapter(var definitions: ArrayList<Definition>) :
         holder.itemView.btn_liked.setOnClickListener {
             definition.thumbsUp = definition.thumbsUp!!.inc()
             holder.itemView.btn_liked.text = definition.thumbsUp.toString()
-
         }
 
         holder.itemView.btn_dislike.setOnClickListener {
             definition.thumbsDown = definition.thumbsDown!!.inc()
             holder.itemView.btn_dislike.text = definition.thumbsDown.toString()
-
         }
 
-        holder.itemView.sort_likes.setOnClickListener {
+        holder.itemView.btn_sort_likes.setOnClickListener {
             sortLikes(definitions)
         }
 
-        holder.itemView.sort_dislikes.setOnClickListener {
+        holder.itemView.btn_sort_dislikes.setOnClickListener {
             sortDislikes(definitions)
         }
     }
 
-    private fun sortLikes(definitions: List<Definition>){
+    private fun sortLikes(definitions: List<Definition>) {
         val sortedList = definitions.sortedByDescending { definition -> definition.thumbsUp }
         updateWordList(sortedList)
     }
 
-    private fun sortDislikes(definitions: List<Definition>){
+    private fun sortDislikes(definitions: List<Definition>) {
         val sortedList = definitions.sortedByDescending { definition -> definition.thumbsDown }
         updateWordList(sortedList)
     }
